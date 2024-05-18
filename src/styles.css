@@ -1,0 +1,46 @@
+:root {
+  --primary-color: #211a25;
+  --contrast-color: #fff;
+  --brand-color: #ee9600;
+  --secondary-color: #151d27;
+  --light-color: rgb(90, 90, 90);
+}
+
+:root {
+  --surface-color: var(--secondary-color);
+  --brand-outline-color: var(--brand-color);
+  --quite-outline-color: var(--light-color);
+
+  --contrast-text-color: var(--contrast-color);
+  --brand-text-color: var(--brand-color);
+  --text-color: var(--constast-color);
+
+  --initial-font-size: 14px;
+  --medium-screen-size-font-size: 10px;
+
+  --header-title-font-size: 2.5rem;
+
+  --medium-screen-size: 1024px;
+  --small-screen-size: 726px;
+  --mobile-screen-size: 400px;
+
+  /* divider */
+  --default-link-opacity: 1;
+  --hover-link-opacity: 0.8;
+}
+
+a {
+  opacity: var(--default-link-opacity);
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: var(--hover-link-opacity);
+  text-decoration: underline;;
+}
+
+a:focus-visible {
+    outline: none;
+  box-shadow: white 0 0 0 2px;
+}
