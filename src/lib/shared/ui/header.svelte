@@ -1,5 +1,5 @@
 <header class="header">
-	<a href="/" class="blog-name"> ZhabaBlog </a>
+	<a href="/blog" class="blog-name"> ZhabaBlog </a>
 </header>
 
 <style>

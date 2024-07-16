@@ -36,7 +36,7 @@
   --hover-link-opacity: 0.8;
 
   --space: 4px;
-  --small-padding: var(--space)
+  --small-padding: var(--space);
 }
 
 a {
@@ -53,4 +53,8 @@ a:hover {
 a:focus-visible {
     outline: none;
   box-shadow: white 0 0 0 2px;
+}
+
+body {
+  background: var(--surface-color);
 }

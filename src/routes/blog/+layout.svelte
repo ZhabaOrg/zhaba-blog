@@ -14,8 +14,7 @@
 	.wrapper {
 		display: flex;
 		justify-content: center;
-
-		width: 100%;
+		padding: calc(var(--space) * 5);
 	}
 
 	.container {
