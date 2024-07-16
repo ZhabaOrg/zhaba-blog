@@ -14,11 +14,18 @@
   --contrast-text-color: var(--contrast-color);
   --brand-text-color: var(--brand-color);
   --text-color: var(--constast-color);
+  --table-border-color: var(--contrast-color);
 
-  --initial-font-size: 14px;
+  --initial-font-size: 16px;
   --medium-screen-size-font-size: 10px;
 
   --header-title-font-size: 2.5rem;
+  --h1-font-size: 2rem;
+  --h2-font-size: 1.75rem;
+  --h3-font-size: 1.5rem;
+  --h4-font-size: 1.25rem;
+  --h5-font-size: 1rem;
+  --h6-font-size: 0.8rem;
 
   --medium-screen-size: 1024px;
   --small-screen-size: 726px;
@@ -27,6 +34,9 @@
   /* divider */
   --default-link-opacity: 1;
   --hover-link-opacity: 0.8;
+
+  --space: 4px;
+  --small-padding: var(--space)
 }
 
 a {

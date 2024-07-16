@@ -21,7 +21,7 @@
 		background: var(--surface-color);
 		color: var(--contrast-color);
 
-		font-family: 'Ubuntu Sans';
+		font-family: 'Source Code Pro';
 
 		line-height: 1.3rem;
 	}

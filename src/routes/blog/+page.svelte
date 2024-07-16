@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ShortArticlePreview } from '$lib/entities/article/model/short-article-preview';
-	import { ArticleList } from '../../widgets/article-list';
+	import { ArticleList } from '$lib/widgets/article-list';
 
 	const articlePreviews: ShortArticlePreview[] = [
 		{
