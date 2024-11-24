@@ -4,16 +4,19 @@
 	interface NavigationItem {
 		url: string;
 		name: string;
+		pattern: RegExp;
 	}
 
 	const navigationSettings: NavigationItem[] = [
 		{
 			url: '/blog',
-			name: 'Статьи'
+			name: 'Статьи',
+			pattern: /blog/
 		},
 		{
 			url: '/kvaks',
-			name: '#Квак'
+			name: '#Квак',
+			pattern: /kvaks/
 		}
 	];
 </script>
@@ -21,9 +24,9 @@
 <header class="header">
 	<a href="/blog" class="blog-name">Zhaba.Blog</a>
 	<nav class="menu">
-		{#each navigationSettings as { url, name } (url)}
+		{#each navigationSettings as { url, name, pattern } (url)}
 			<li>
-				<a href={url} class:menu-item-active={$page.url.pathname === url}>{name}</a>
+				<a href={url} class:menu-item-active={pattern.test($page.url.pathname)}>{name}</a>
 			</li>
 		{/each}
 	</nav>

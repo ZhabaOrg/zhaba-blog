@@ -5,7 +5,6 @@ export const load: PageServerLoad = async (event) => {
 
 	const article = await event.locals.strapiApi.getArticleBySlug(slug);
 
-	console.log('article', article);
 	return {
 		article
 	};
