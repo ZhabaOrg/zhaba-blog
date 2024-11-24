@@ -1,10 +1,14 @@
 <script type="ts">
 	import '../reset.css';
 	import '../styles.css';
+
+	import { Header, Footer } from '$lib/shared/ui';
 </script>
 
 <div class="wrapper" id="root">
+	<Header />
 	<slot />
+	<Footer />
 </div>
 
 <style lang="scss">
@@ -21,7 +25,7 @@
 		background: var(--surface-color);
 		color: var(--contrast-color);
 
-		font-family: 'Source Code Pro';
+		font-family: var(--default-font);
 
 		line-height: 1.3rem;
 	}

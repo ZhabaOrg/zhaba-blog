@@ -19,7 +19,7 @@
   --initial-font-size: 16px;
   --medium-screen-size-font-size: 10px;
 
-  --header-title-font-size: 2.5rem;
+  --header-title-font-size: 2.0rem;
   --h1-font-size: 2rem;
   --h2-font-size: 1.75rem;
   --h3-font-size: 1.5rem;
@@ -31,12 +31,20 @@
   --small-screen-size: 726px;
   --mobile-screen-size: 400px;
 
+  /* fonts */
+  --contrast-font: "Poetsen One";
+  --default-font: "Source Code Pro";
+
   /* divider */
   --default-link-opacity: 1;
   --hover-link-opacity: 0.8;
 
   --space: 4px;
   --small-padding: var(--space);
+}
+
+ul, nav {
+  list-style-type: none;
 }
 
 a {

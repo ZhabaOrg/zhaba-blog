@@ -2,13 +2,11 @@
 	import { Header, Footer } from '$lib/shared/ui';
 </script>
 
-<Header />
 <div class="wrapper">
 	<div class="container">
 		<slot />
 	</div>
 </div>
-<Footer />
 
 <style>
 	.wrapper {
