@@ -8,7 +8,7 @@
 <section class="list">
 	{#each articlePreviews as articlePreview}
 		<div class="wrapper">
-			<ArticlePreview article={articlePreview} href="./rofln" />
+			<ArticlePreview article={articlePreview} />
 		</div>
 	{/each}
 </section>

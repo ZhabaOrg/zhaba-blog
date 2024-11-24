@@ -2,13 +2,19 @@
 	import { page } from '$app/stores';
 
 	import ZhabaImage from '$lib/assets/images/zhaba.jpeg?enhanced';
+	import ZhabaWait from '$lib/assets/images/zhaba-wait.jpg?enhanced';
 </script>
 
 <div class="wrapper">
 	<div class="container">
 		<span class="status-code">{$page.status}</span>
-		<enhanced:img src={ZhabaImage} alt="Заблудившайся жаба" class="zhaba-image" />
-		<span>Вы выглядите, как заблудившайся жаба</span>
+		{#if $page.status === 404}
+			<enhanced:img src={ZhabaImage} alt="Заблудившайся жаба" class="zhaba-image" />
+			<span>Вы выглядите, как заблудившайся жаба</span>
+		{:else}
+			<enhanced:img src={ZhabaWait} alt="Заблудившайся жаба" class="zhaba-image" />
+			<span>Жаба устала и отдыхает :(</span>
+		{/if}
 	</div>
 </div>
 

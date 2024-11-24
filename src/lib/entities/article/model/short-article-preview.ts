@@ -1,6 +1,8 @@
 export interface ShortArticlePreview {
 	createdAt: string;
 	title: string;
-	previewText: string;
-	likeCount: number;
+	description: string;
+	// likeCount: number;
+	slug: string;
+	content: string;
 }
