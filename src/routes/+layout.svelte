@@ -1,6 +1,6 @@
 <script type="ts">
 	import '../reset.css';
-	import '../styles.css';
+	import '../styles.scss';
 
 	import { Header, Footer } from '$lib/shared/ui';
 </script>
@@ -12,6 +12,8 @@
 </div>
 
 <style lang="scss">
+	@import 'src/styles';
+
 	.wrapper {
 		margin: 0;
 		padding: 0;
@@ -33,8 +35,8 @@
 	:global(html) {
 		font-size: var(--initial-font-size);
 
-		@media screen and (max-width: 800px) {
-			font-size: var(--medium-screen-size-font-size);
+		@media screen and (max-width: map-get($breakpoints, 'small')) {
+			font-size: var(--small-screen-size-font-size);
 		}
 	}
 </style>

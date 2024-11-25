@@ -2,7 +2,8 @@
 	<div class="container">2024 - Aleksandr Zhavoronkov</div>
 </footer>
 
-<style>
+<style lang="scss">
+	@import 'src/styles.scss';
 	.wrapper {
 		display: flex;
 		align-items: center;
@@ -15,5 +16,14 @@
 
 	.container {
 		padding-right: 200px;
+	}
+	@media screen and (max-width: map-get($breakpoints, 'small')) {
+		.container {
+			padding: 0;
+		}
+
+		.wrapper {
+			justify-content: center;
+		}
 	}
 </style>

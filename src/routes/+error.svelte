@@ -26,10 +26,12 @@
 		flex-direction: column;
 		gap: 20px;
 
-		font-size: 30px;
-
 		transform: translateY(-50px);
 		height: fit-content;
+		line-height: 120%;
+		text-align: center;
+
+		font-size: 2rem;
 	}
 
 	.wrapper {

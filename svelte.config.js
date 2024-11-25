@@ -1,12 +1,20 @@
+// import path from 'node:path';
 import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
+import pkg from 'svelte-preprocess';
+
+const { scss } = pkg;
 
 
+// console.log('path', path.join(import.meta.url, '../', 'src').replace('file:', ''))
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
-	preprocess: preprocess(),
+	preprocess: preprocess([
+    scss({
+    })
+  ]),
 
 	kit: {
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.

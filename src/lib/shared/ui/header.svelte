@@ -33,7 +33,9 @@
 	<div></div>
 </header>
 
-<style>
+<style lang="scss">
+	@import 'src/styles';
+
 	.header {
 		--padding-side: 40px;
 
@@ -50,6 +52,13 @@
 
 		font-size: var(--header-title-font-size);
 		font-family: var(--contrast-font);
+	}
+
+	@media (max-width: map-get($breakpoints, 'small')) {
+		.header {
+			--padding-side: 20px;
+			grid-template-columns: 1fr auto 0;
+		}
 	}
 
 	.blog-name {
