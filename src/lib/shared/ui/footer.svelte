@@ -1,5 +1,11 @@
+<script>
+	import ContentAligner from './content-aligner.svelte';
+</script>
+
 <footer class="wrapper">
-	<div class="container">2024 - Aleksandr Zhavoronkov</div>
+	<ContentAligner>
+		<div class="container">2024 - Aleksandr Zhavoronkov</div>
+	</ContentAligner>
 </footer>
 
 <style lang="scss">
@@ -7,23 +13,13 @@
 	.wrapper {
 		display: flex;
 		align-items: center;
-		justify-content: flex-end;
+		justify-content: center;
 		width: 100%;
-		height: calc(var(--space) * 10);
 
 		border-top: 1px solid var(--brand-outline-color);
 	}
 
 	.container {
-		padding-right: 200px;
-	}
-	@media screen and (max-width: map-get($breakpoints, 'small')) {
-		.container {
-			padding: 0;
-		}
-
-		.wrapper {
-			justify-content: center;
-		}
+		text-align: end;
 	}
 </style>

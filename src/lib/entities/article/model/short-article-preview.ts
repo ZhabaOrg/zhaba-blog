@@ -5,4 +5,5 @@ export interface ShortArticlePreview {
 	// likeCount: number;
 	slug: string;
 	content: string;
+	type: 'kvak' | 'complete';
 }

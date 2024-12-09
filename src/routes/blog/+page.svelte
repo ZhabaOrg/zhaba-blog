@@ -50,6 +50,10 @@
 	// ];
 </script>
 
+<svelte:head>
+	<title>Статьи — Zhaba.blog</title>
+</svelte:head>
+
 <main>
 	<ArticleList articlePreviews={data.articles} />
 </main>

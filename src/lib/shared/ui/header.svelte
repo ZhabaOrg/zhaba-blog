@@ -10,19 +10,16 @@
 	const navigationSettings: NavigationItem[] = [
 		{
 			url: '/blog',
-			name: 'Статьи',
+			name: 'Записи',
 			pattern: /blog/
-		},
-		{
-			url: '/kvaks',
-			name: '#Квак',
-			pattern: /kvaks/
 		}
 	];
 </script>
 
 <header class="header">
-	<a href="/blog" class="blog-name">Zhaba.Blog</a>
+	<div class="blog-name">
+		<a href="/blog"> Zhaba.Blog </a>
+	</div>
 	<nav class="menu">
 		{#each navigationSettings as { url, name, pattern } (url)}
 			<li>

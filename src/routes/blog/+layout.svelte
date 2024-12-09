@@ -1,23 +1,7 @@
 <script>
-	import { Header, Footer } from '$lib/shared/ui';
+	import { ContentAligner } from '$lib/shared/ui';
 </script>
 
-<div class="wrapper">
-	<div class="container">
-		<slot />
-	</div>
-</div>
-
-<style>
-	.wrapper {
-		display: flex;
-		justify-content: center;
-		padding: calc(var(--space) * 5);
-	}
-
-	.container {
-		--container-padding: 20px;
-		max-width: calc(100vw - 2 * var(--container-padding));
-		width: 800px;
-	}
-</style>
+<ContentAligner>
+	<slot />
+</ContentAligner>

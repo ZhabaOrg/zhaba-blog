@@ -1,28 +1,27 @@
 <script lang="ts">
+	import { Date } from '$lib/shared/ui';
 	import { getBlogUrl } from '$lib/shared/utils/url';
 	import type { ShortArticlePreview } from '../../model/short-article-preview';
 
-	import { format } from 'date-fns';
-	import { ru as localeRu } from 'date-fns/locale/ru';
-
 	export let article: ShortArticlePreview;
-
-	console.log('article.createdAt', article.createdAt);
-
-	$: date = format(new Date(article.createdAt), 'MM/dd/yyyy в HH:mm:ss', {
-		locale: localeRu
-	});
 </script>
 
 <article class="container">
-	<h2 class="title">
-		<a href={getBlogUrl(article.slug)}>{article.title} </a>
-	</h2>
-	<summary>
-		{article.description}
-	</summary>
+	<div class="title-container">
+		<h2 class="title" class:title-kvak={article.type === 'kvak'}>
+			{#if article.type === 'kvak'}
+				<span class="kvak">#kvak</span>
+			{/if}
+			<a href={getBlogUrl(article.slug)}>{article.title}</a>
+		</h2>
+		<Date date={article.createdAt} includeTime={false} />
+	</div>
+	{#if article.description}
+		<summary>
+			{article.description}
+		</summary>
+	{/if}
 	<div class="meta">
-		<span>Статья опубликована: {date}</span>
 		<span>Теги:</span>
 	</div>
 </article>
@@ -33,6 +32,17 @@
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
+	}
+
+	.title-container {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 20px;
+	}
+
+	.kvak {
+		color: #82bb85;
 	}
 
 	.title {
@@ -47,6 +57,10 @@
 	}
 
 	.title::before {
-		content: '> ';
+		content: '>';
+	}
+
+	.title-kvak::before {
+		color: #82bb85;
 	}
 </style>

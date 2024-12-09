@@ -5,6 +5,10 @@
 	import { Header, Footer } from '$lib/shared/ui';
 </script>
 
+<svelte:head>
+	<title>Zhaba.Blog</title>
+</svelte:head>
+
 <div class="wrapper" id="root">
 	<Header />
 	<slot />
