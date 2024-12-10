@@ -1,5 +1,4 @@
-// import path from 'node:path';
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-node';
 import preprocess from 'svelte-preprocess';
 import pkg from 'svelte-preprocess';
 
