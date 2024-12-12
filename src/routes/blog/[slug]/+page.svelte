@@ -14,8 +14,8 @@
 	<h1 class="title">{data.article.title}</h1>
 	<MarkdownRenderer text={data.article.content} />
 	<div class="date">
-		<span>Дата публикации: <Date date={data.article.createdAt} /></span>
-		{#if data.article.updatedAt}
+		<span id="article-date">Дата публикации: <Date date={data.article.createdAt} /></span>
+		{#if data.article.updatedAt && data.article.updatedAt !== data.article.createdAt}
 			<span>Дата обновления: <Date date={data.article.updatedAt} /></span>
 		{/if}
 	</div>

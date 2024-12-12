@@ -2,18 +2,20 @@
 	import { Remarkable } from 'remarkable';
 	import hljs from 'highlight.js'; // https://highlightjs.org/
 	import 'highlight.js/styles/github.css';
+	import { browser } from '$app/environment';
+	import { excludePTagAsImageWrapper } from '../utils';
 
 	export let text: string;
 
-	// Actual default values
-	const md = new Remarkable({
+	const md = new Remarkable('full', {
 		typographer: true,
+		breaks: true,
+		html: true,
 		highlight: function (str, lang) {
 			console.log('lang', lang);
 			if (lang && hljs.getLanguage(lang)) {
 				try {
 					const val = hljs.highlight(lang, str).value;
-					console.log('val', val);
 					return val;
 				} catch (err) {}
 			}
@@ -25,10 +27,17 @@
 			return ''; // use external default escaping
 		}
 	});
+
+	$: html = md.render(text);
+	$: parsedHtml = browser ? excludePTagAsImageWrapper(html) : html;
 </script>
 
 <div class="markdown">
-	{@html md.render(text)}
+	{#if browser}
+		{@html parsedHtml}
+	{:else}
+		{@html parsedHtml}
+	{/if}
 </div>
 
 <style lang="scss">
@@ -118,10 +127,7 @@
 
 		:global(ol) {
 			list-style-type: decimal;
-
-			:global(li)::marker {
-				display: none;
-			}
+			list-style-position: inside;
 		}
 
 		:global(table) {
@@ -144,6 +150,7 @@
 		:global(img) {
 			padding: calc(var(--space) * 5);
 			width: 500px;
+			max-width: calc(100vw - 2 * var(--container-padding));
 			margin-left: 50%;
 			transform: translateX(-50%);
 			/* margin: 0 auto; */
