@@ -4,7 +4,7 @@
 
 <footer class="wrapper">
 	<ContentAligner>
-		<div class="container">2024 - Aleksandr Zhavoronkov</div>
+		<div class="container">2025 - Aleksandr Zhavoronkov</div>
 	</ContentAligner>
 </footer>
 

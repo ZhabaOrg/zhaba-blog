@@ -1,23 +1,34 @@
-:root {
-  --primary-color: #211a25;
+#root[data-theme="dark"] {
+  --primary-color:#151d27;
   --contrast-color: #fff;
-  --brand-color: #ee9600;
-  --secondary-color: #151d27;
+  --specific-constrast-color: #596af4;
+  --brand-color: #ee9600;;
+  --secondary-color:  #211a25;
   --light-color: rgb(90, 90, 90);
 }
 
-:root {
+#root[data-theme="light"] {
+  --primary-color: #fff;
+  --contrast-color:#211a25;
+  --specific-constrast-color: #bdc5ff;
+  --brand-color: #d88900;
+  --secondary-color: #f3f3f3;
+  --light-color: rgb(90, 90, 90);
+}
+
+#root {
+  --main-background-color: var(--primary-color);
   --surface-color: var(--secondary-color);
   --brand-outline-color: var(--brand-color);
   --quite-outline-color: var(--light-color);
 
-  --contrast-text-color: var(--contrast-color);
+  --contrast-text-color: var(--specific-constrast-color);
   --brand-text-color: var(--brand-color);
   --text-color: var(--constast-color);
   --table-border-color: var(--contrast-color);
 
   --initial-font-size: 16px;
-  --small-screen-size-font-size: 10px;
+  --small-screen-size-font-size: 12px;
 
   --header-title-font-size: 2.0rem;
   --h1-font-size: 2rem;

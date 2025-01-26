@@ -4,12 +4,13 @@
 
 	export let date: string;
 	export let includeTime = true;
+	export let id: string | undefined = undefined;
 
-	$: date = format(new Date(date), `MM/dd/yyyy${includeTime ? ' в HH:mm:ss' : ''}`, {
+	$: formattedDate = format(new Date(date), `MM/dd/yyyy${includeTime ? ' в HH:mm:ss' : ''}`, {
 		locale: localeRu
 	});
 </script>
 
-<time datetime={date}>
-	{date}
+<time datetime={date} {id}>
+	{formattedDate}
 </time>

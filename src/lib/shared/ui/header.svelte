@@ -1,5 +1,8 @@
 <script lang="ts">
+	import { invalidateAll } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { getTheme, setLocalTheme } from '$lib/common/theme';
+	import { setTheme } from '$lib/entities/theme';
 
 	interface NavigationItem {
 		url: string;
@@ -14,6 +17,11 @@
 			pattern: /blog/
 		}
 	];
+
+	const handleChangeTheme = () => {
+		const currentTheme = getTheme();
+		setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+	};
 </script>
 
 <header class="header">
@@ -27,7 +35,9 @@
 			</li>
 		{/each}
 	</nav>
-	<div></div>
+	<div class="button-wrapper">
+		<button class="change-theme-button" on:click={handleChangeTheme}>Сменить тему</button>
+	</div>
 </header>
 
 <style lang="scss">
@@ -36,7 +46,6 @@
 	.header {
 		--padding-side: 40px;
 
-		background: #151d27;
 		width: calc(100% - var(--padding-side) * 2);
 		height: 50px;
 		padding: 0 var(--padding-side);
@@ -49,13 +58,6 @@
 
 		font-size: var(--header-title-font-size);
 		font-family: var(--contrast-font);
-	}
-
-	@media (max-width: map-get($breakpoints, 'small')) {
-		.header {
-			--padding-side: 20px;
-			grid-template-columns: 1fr auto 0;
-		}
 	}
 
 	.blog-name {
@@ -78,5 +80,40 @@
 	.menu-item-active {
 		color: var(--brand-color);
 		text-decoration: underline;
+	}
+
+	.button-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
+	.change-theme-button {
+		font-family: var(--default-font);
+		font-size: 1rem;
+		color: var(--contrast-color);
+
+		text-align: end;
+
+		border: none;
+		background: inherit;
+
+		white-space: nowrap;
+	}
+
+	.change-theme-button:hover {
+		text-decoration: underline;
+		cursor: pointer;
+	}
+
+	@media (max-width: map-get($breakpoints, 'small')) {
+		.header {
+			--padding-side: 20px;
+			grid-template-columns: 1fr 0 auto;
+		}
+
+		.menu {
+			display: none;
+		}
 	}
 </style>

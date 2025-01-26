@@ -22,7 +22,7 @@
 		</summary>
 	{/if}
 	<div class="meta">
-		<span>Теги:</span>
+		<slot name="meta" />
 	</div>
 </article>
 

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { ArticlePreview } from '$lib/entities/article';
 	import type { ShortArticlePreview } from '$lib/entities/article';
+	import { TagList } from '$lib/entities/tag';
 
 	export let articlePreviews: ShortArticlePreview[];
 </script>
@@ -8,14 +9,16 @@
 <section class="list">
 	{#each articlePreviews as articlePreview}
 		<div class="wrapper">
-			<ArticlePreview article={articlePreview} />
+			<ArticlePreview article={articlePreview}>
+				<TagList slot="meta" tags={articlePreview.tags?.map(({ name }) => name) ?? []} />
+			</ArticlePreview>
 		</div>
 	{/each}
 </section>
 
 <style>
 	.list {
-		--gap: 20px;
+		--gap: 1rem;
 		display: flex;
 		flex-direction: column;
 		gap: var(--gap);

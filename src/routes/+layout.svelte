@@ -3,13 +3,21 @@
 	import '../styles.scss';
 
 	import { Header, Footer } from '$lib/shared/ui';
+	import { onMount } from 'svelte';
+	import { getTheme } from '$lib/common/theme';
+	import { initBindTheme, theme } from '$lib/entities/theme';
+
+	onMount(() => {
+		initBindTheme();
+		$theme = getTheme();
+	});
 </script>
 
 <svelte:head>
 	<title>Zhaba.Blog</title>
 </svelte:head>
 
-<div class="wrapper" id="root">
+<div class="wrapper" id="root" data-theme={$theme}>
 	<Header />
 	<slot />
 	<Footer />
@@ -28,7 +36,7 @@
 		min-height: 100vh;
 		width: 100%;
 
-		background: var(--surface-color);
+		background: var(--main-background-color);
 		color: var(--contrast-color);
 
 		font-family: var(--default-font);

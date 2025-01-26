@@ -6,4 +6,5 @@ export interface ShortArticlePreview {
 	slug: string;
 	content: string;
 	type: 'kvak' | 'complete';
+	tags: { name: string }[];
 }

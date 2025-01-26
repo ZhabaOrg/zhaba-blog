@@ -14,22 +14,31 @@
 	<h1 class="title">{data.article.title}</h1>
 	<MarkdownRenderer text={data.article.content} />
 	<div class="date">
-		<span id="article-date">Дата публикации: <Date date={data.article.createdAt} /></span>
+		<span id="article-date"
+			>Дата публикации: <Date id="article-created-at" date={data.article.createdAt} /></span
+		>
 		{#if data.article.updatedAt && data.article.updatedAt !== data.article.createdAt}
 			<span>Дата обновления: <Date date={data.article.updatedAt} /></span>
 		{/if}
 	</div>
 </div>
 
-<style>
+<style lang="scss">
+	@import 'src/styles';
 	.title {
 		font-size: 2.5rem;
 		line-height: 120%;
-		margin-bottom: calc(var(--space) * 10);
+		margin-bottom: 2rem;
 		display: block;
 		font-weight: bold;
 
 		position: relative;
+	}
+
+	@media screen and (max-width: map-get($breakpoints, 'small')) {
+		.title {
+			font-size: 1.5rem;
+		}
 	}
 
 	.date {

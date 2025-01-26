@@ -1,48 +1,20 @@
 <script lang="ts">
-	import { Remarkable } from 'remarkable';
-	import hljs from 'highlight.js'; // https://highlightjs.org/
 	import 'highlight.js/styles/github.css';
-	import { browser } from '$app/environment';
-	import { excludePTagAsImageWrapper } from '../utils';
 
 	export let text: string;
-
-	const md = new Remarkable('full', {
-		typographer: true,
-		breaks: true,
-		html: true,
-		highlight: function (str, lang) {
-			console.log('lang', lang);
-			if (lang && hljs.getLanguage(lang)) {
-				try {
-					const val = hljs.highlight(lang, str).value;
-					return val;
-				} catch (err) {}
-			}
-
-			try {
-				return hljs.highlightAuto(str).value;
-			} catch (err) {}
-
-			return ''; // use external default escaping
-		}
-	});
-
-	$: html = md.render(text);
-	$: parsedHtml = browser ? excludePTagAsImageWrapper(html) : html;
 </script>
 
 <div class="markdown">
-	{#if browser}
-		{@html parsedHtml}
-	{:else}
-		{@html parsedHtml}
-	{/if}
+	{@html text}
 </div>
 
 <style lang="scss">
 	.markdown {
-		line-height: 2;
+		line-height: 1.7;
+
+		:global(p) {
+			margin-bottom: 1rem;
+		}
 		:global(h1) {
 			color: var(--brand-text-color);
 			font-size: var(--h1-font-size);
@@ -82,7 +54,7 @@
 		}
 
 		:global(pre) {
-			background: black;
+			background: var(--secondary-color);
 			padding: 10px;
 
 			:global(code) {
@@ -91,7 +63,7 @@
 		}
 
 		:global(code) {
-			background: #596af4;
+			background: var(--contrast-text-color);
 			padding: 4px;
 		}
 
@@ -142,18 +114,18 @@
 			}
 
 			:global(thead) {
-				background: black;
+				background: var(--secondary-color);
 				color: var(--brand-color);
 			}
 		}
 
 		:global(img) {
-			padding: calc(var(--space) * 5);
+			padding: 1.25rem;
 			width: 500px;
 			max-width: calc(100vw - 2 * var(--container-padding));
 			margin-left: 50%;
+			margin-right: calc(-50% - 1.25rem);
 			transform: translateX(-50%);
-			/* margin: 0 auto; */
 		}
 	}
 </style>

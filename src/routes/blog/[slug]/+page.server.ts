@@ -1,5 +1,6 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
+import { excludePTagAsImageWrapper, getHtmlFromMarkdown } from '$lib/server/utils/html';
 
 export const load: PageServerLoad = async (event) => {
 	const slug = event.params.slug;
@@ -11,6 +12,9 @@ export const load: PageServerLoad = async (event) => {
 	}
 
 	return {
-		article
+		article: {
+			...article,
+			content: excludePTagAsImageWrapper(getHtmlFromMarkdown(article.content))
+		}
 	};
 };
